@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (stockDetails()) {
+      <div>
+        <h2 data-cy="stockDetailsDetailsHeading"><span jhiTranslate="breakoutStocksApp.stockDetails.detail.title">Stock Details</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ stockDetails()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockDetails.curPrice">Cur Price</span></dt>
+          <dd>
+            <span>{{ stockDetails()!.curPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockDetails.priceChange">Price Change</span></dt>
+          <dd>
+            <span>{{ stockDetails()!.priceChange }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockDetails.changePer">Change Per</span></dt>
+          <dd>
+            <span>{{ stockDetails()!.changePer }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockDetails.stock">Stock</span></dt>
+          <dd>
+            @if (stockDetails()!.stock) {
+              <div>
+                <a [routerLink]="['/stock', stockDetails()!.stock?.id, 'view']">{{ stockDetails()!.stock?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/stock-details', stockDetails()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

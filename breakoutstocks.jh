@@ -18,22 +18,22 @@ entity Stock {
 }
 
 entity StockDetails {
-	curPrice Decimal
-	priceChange Decimal
-	changePer Decimal
+	curPrice Float
+	priceChange Float
+	changePer Float
 }
 
 entity StockRecommendation {
-	entry Decimal
-	stopLoss Decimal
-	target Decimal
+	entry Float
+	stopLoss Float
+	target Float
 	quantity Integer
 	comments String
 }
 
 entity StockPosition {
-	buyingPrice Decimal
-	exitPrice Decimal
+	buyingPrice Float
+	exitPrice Float
 	sold Boolean
 	quantity Integer
 	comments String
@@ -55,8 +55,7 @@ relationship OneToMany {
 
 
 // Set pagination options
-paginate JobHistory, Employee with infinite-scroll
-paginate Job with pagination
+paginate * with pagination
 
 // Use Data Transfer Objects (DTO)
  dto * with mapstruct

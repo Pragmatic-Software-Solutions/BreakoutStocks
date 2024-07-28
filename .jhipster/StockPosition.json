@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240728175336"
+  },
+  "applications": ["breakoutStocks"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "buyingPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "exitPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "sold",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "name": "StockPosition",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "stock",
+      "relationshipName": "stock",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

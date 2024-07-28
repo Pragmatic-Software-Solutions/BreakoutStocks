@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240728175335"
+  },
+  "applications": ["breakoutStocks"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "entry",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "stopLoss",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "target",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "name": "StockRecommendation",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "stock",
+      "relationshipName": "stock",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
