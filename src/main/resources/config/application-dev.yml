@@ -32,8 +32,8 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/BreakoutStocks;DB_CLOSE_DELAY=-1;MODE=MYSQL
-    username: BreakoutStocks
+    url: jdbc:h2:file:./target/h2db/db/breakoutStocks;DB_CLOSE_DELAY=-1;MODE=MYSQL
+    username: breakoutStocks
     password:
     hikari:
       poolName: Hikari

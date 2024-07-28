@@ -50,6 +50,12 @@ public class CacheConfiguration {
             createCache(cm, com.finance.tracker.breakout.domain.User.class.getName());
             createCache(cm, com.finance.tracker.breakout.domain.Authority.class.getName());
             createCache(cm, com.finance.tracker.breakout.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.finance.tracker.breakout.domain.Stock.class.getName());
+            createCache(cm, com.finance.tracker.breakout.domain.Stock.class.getName() + ".stockRecommendations");
+            createCache(cm, com.finance.tracker.breakout.domain.Stock.class.getName() + ".stockPositions");
+            createCache(cm, com.finance.tracker.breakout.domain.StockDetails.class.getName());
+            createCache(cm, com.finance.tracker.breakout.domain.StockRecommendation.class.getName());
+            createCache(cm, com.finance.tracker.breakout.domain.StockPosition.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

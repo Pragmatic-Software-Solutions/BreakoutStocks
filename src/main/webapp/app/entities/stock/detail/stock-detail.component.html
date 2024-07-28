@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (stock()) {
+      <div>
+        <h2 data-cy="stockDetailsHeading"><span jhiTranslate="breakoutStocksApp.stock.detail.title">Stock</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ stock()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stock.symbol">Symbol</span></dt>
+          <dd>
+            <span>{{ stock()!.symbol }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stock.exchange">Exchange</span></dt>
+          <dd>
+            <span>{{ stock()!.exchange }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/stock', stock()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

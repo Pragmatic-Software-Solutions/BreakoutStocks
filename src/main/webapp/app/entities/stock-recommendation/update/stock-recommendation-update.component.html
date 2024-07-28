@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-stock-recommendation-heading"
+        data-cy="StockRecommendationCreateUpdateHeading"
+        jhiTranslate="breakoutStocksApp.stockRecommendation.home.createOrEditLabel"
+      >
+        Create or edit a Stock Recommendation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="breakoutStocksApp.stockRecommendation.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_entry" jhiTranslate="breakoutStocksApp.stockRecommendation.entry">Entry</label>
+          <input type="number" class="form-control" name="entry" id="field_entry" data-cy="entry" formControlName="entry" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stopLoss" jhiTranslate="breakoutStocksApp.stockRecommendation.stopLoss">Stop Loss</label>
+          <input type="number" class="form-control" name="stopLoss" id="field_stopLoss" data-cy="stopLoss" formControlName="stopLoss" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_target" jhiTranslate="breakoutStocksApp.stockRecommendation.target">Target</label>
+          <input type="number" class="form-control" name="target" id="field_target" data-cy="target" formControlName="target" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_quantity" jhiTranslate="breakoutStocksApp.stockRecommendation.quantity">Quantity</label>
+          <input type="number" class="form-control" name="quantity" id="field_quantity" data-cy="quantity" formControlName="quantity" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_comments" jhiTranslate="breakoutStocksApp.stockRecommendation.comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stock" jhiTranslate="breakoutStocksApp.stockRecommendation.stock">Stock</label>
+          <select class="form-control" id="field_stock" data-cy="stock" name="stock" formControlName="stock" [compareWith]="compareStock">
+            <option [ngValue]="null"></option>
+            @for (stockOption of stocksSharedCollection; track $index) {
+              <option [ngValue]="stockOption">{{ stockOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

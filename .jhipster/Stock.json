@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20240728175333"
+  },
+  "applications": ["breakoutStocks"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "symbol",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exchange",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Stock",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "stockRecommendation",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "stockRecommendation",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "stockPosition",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "stockPosition",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
