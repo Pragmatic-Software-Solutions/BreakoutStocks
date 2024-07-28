@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = com.finance.tracker.\
+    breakout.config.SqlTestContainersSpringContextCustomizerFactory
