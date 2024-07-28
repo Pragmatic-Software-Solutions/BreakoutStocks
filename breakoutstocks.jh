@@ -1,0 +1,68 @@
+
+application {
+  config {
+    baseName breakoutStocks
+    applicationType monolith
+    packageName com.finance.tracker.breakout
+    authenticationType jwt
+    prodDatabaseType mysql
+    clientFramework angularX
+  }
+  entities *
+}
+
+
+entity Stock {
+    symbol String
+    exchange String
+}
+
+entity StockDetails {
+	curPrice Decimal
+	priceChange Decimal
+	changePer Decimal
+}
+
+entity StockRecommendation {
+	entry Decimal
+	stopLoss Decimal
+	target Decimal
+	quantity Integer
+	comments String
+}
+
+entity StockPosition {
+	buyingPrice Decimal
+	exitPrice Decimal
+	sold Boolean
+	quantity Integer
+	comments String
+}
+
+
+
+
+relationship OneToOne {
+	StockDetails{stock} to Stock
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Stock to StockRecommendation{stock}
+	Stock to StockPosition{stock}
+}
+
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
