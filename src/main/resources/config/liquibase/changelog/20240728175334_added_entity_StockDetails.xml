@@ -14,6 +14,9 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="symbol" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="cur_price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
@@ -42,11 +45,11 @@
     -->
     <changeSet id="20240728175334-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/stock_details.csv"
+                  file="config/liquibase/fake-data/stock_details1.csv"
                   separator=";"
                   tableName="stock_details"
                   usePreparedStatements="true">
-            <column name="id" type="numeric"/>
+<!--            <column name="id" type="numeric"/>-->
             <column name="cur_price" type="numeric"/>
             <column name="price_change" type="numeric"/>
             <column name="change_per" type="numeric"/>

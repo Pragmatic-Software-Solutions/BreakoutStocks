@@ -15,7 +15,7 @@ public interface StockRecommendationMapper extends EntityMapper<StockRecommendat
     StockRecommendationDTO toDto(StockRecommendation s);
 
     @Named("stockId")
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id", source = "id")
+    //    @BeanMapping(ignoreByDefault = true)
+    //    @Mapping(target = "id", source = "id")
     StockDTO toDtoStockId(Stock stock);
 }

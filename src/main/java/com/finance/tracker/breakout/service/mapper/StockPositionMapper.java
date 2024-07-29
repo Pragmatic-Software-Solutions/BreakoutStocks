@@ -15,7 +15,7 @@ public interface StockPositionMapper extends EntityMapper<StockPositionDTO, Stoc
     StockPositionDTO toDto(StockPosition s);
 
     @Named("stockId")
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id", source = "id")
+    //    @BeanMapping(ignoreByDefault = true)
+    //    @Mapping(target = "id", source = "id")
     StockDTO toDtoStockId(Stock stock);
 }

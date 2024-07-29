@@ -37,7 +37,7 @@ public class StockRecommendation implements Serializable {
     @Column(name = "comments")
     private String comments;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JsonIgnoreProperties(value = { "stockRecommendations", "stockPositions", "stockDetails" }, allowSetters = true)
     private Stock stock;
 

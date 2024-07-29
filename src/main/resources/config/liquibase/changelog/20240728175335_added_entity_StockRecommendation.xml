@@ -14,6 +14,9 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="symbol" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="entry" type="${floatType}">
                 <constraints nullable="true" />
             </column>
@@ -48,11 +51,11 @@
     -->
     <changeSet id="20240728175335-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/stock_recommendation.csv"
+                  file="config/liquibase/fake-data/stock_recommendation1.csv"
                   separator=";"
                   tableName="stock_recommendation"
                   usePreparedStatements="true">
-            <column name="id" type="numeric"/>
+<!--            <column name="id" type="numeric"/>-->
             <column name="entry" type="numeric"/>
             <column name="stop_loss" type="numeric"/>
             <column name="target" type="numeric"/>

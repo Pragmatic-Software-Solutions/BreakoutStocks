@@ -49,7 +49,7 @@
           <select class="form-control" id="field_stock" data-cy="stock" name="stock" formControlName="stock" [compareWith]="compareStock">
             <option [ngValue]="null"></option>
             @for (stockOption of stocksSharedCollection; track $index) {
-              <option [ngValue]="stockOption">{{ stockOption.id }}</option>
+              <option [ngValue]="stockOption">{{ stockOption.symbol }}</option>
             }
           </select>
         </div>

@@ -100,7 +100,8 @@
               <td>
                 @if (stockRecommendation.stock) {
                   <div>
-                    <a [routerLink]="['/stock', stockRecommendation.stock.id, 'view']">{{ stockRecommendation.stock.id }}</a>
+                    <a [routerLink]="['/stock', stockRecommendation.stock.id, 'view']">{{ stockRecommendation.stock.symbol }}</a>
+                    <!--                    <span>{{ stockRecommendation.stock.symbol }}</span>-->
                   </div>
                 }
               </td>

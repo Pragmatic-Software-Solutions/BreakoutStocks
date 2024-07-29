@@ -7,7 +7,7 @@ export interface IStockRecommendation {
   target?: number | null;
   quantity?: number | null;
   comments?: string | null;
-  stock?: Pick<IStock, 'id'> | null;
+  stock?: Pick<IStock, 'id' | 'symbol'> | null;
 }
 
 export type NewStockRecommendation = Omit<IStockRecommendation, 'id'> & { id: null };

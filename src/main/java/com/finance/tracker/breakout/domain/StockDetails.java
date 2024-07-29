@@ -32,7 +32,7 @@ public class StockDetails implements Serializable {
     private Float changePer;
 
     @JsonIgnoreProperties(value = { "stockRecommendations", "stockPositions", "stockDetails" }, allowSetters = true)
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(unique = true)
     private Stock stock;
 
