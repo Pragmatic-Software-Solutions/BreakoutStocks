@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (stockPosition()) {
+      <div>
+        <h2 data-cy="stockPositionDetailsHeading">
+          <span jhiTranslate="breakoutStocksApp.stockPosition.detail.title">Stock Position</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.buyingPrice">Buying Price</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.buyingPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.exitPrice">Exit Price</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.exitPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.sold">Sold</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.sold }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.quantity">Quantity</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.quantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.comments">Comments</span></dt>
+          <dd>
+            <span>{{ stockPosition()!.comments }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockPosition.stock">Stock</span></dt>
+          <dd>
+            @if (stockPosition()!.stock) {
+              <div>
+                <a [routerLink]="['/stock', stockPosition()!.stock?.id, 'view']">{{ stockPosition()!.stock?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/stock-position', stockPosition()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "breakoutStocksApp": {
+    "stockRecommendation": {
+      "home": {
+        "title": "Stock Recommendations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Stock Recommendation",
+        "createOrEditLabel": "Create or edit a Stock Recommendation",
+        "notFound": "No Stock Recommendations found"
+      },
+      "created": "A new Stock Recommendation is created with identifier {{ param }}",
+      "updated": "A Stock Recommendation is updated with identifier {{ param }}",
+      "deleted": "A Stock Recommendation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stock Recommendation {{ id }}?"
+      },
+      "detail": {
+        "title": "Stock Recommendation"
+      },
+      "id": "ID",
+      "entry": "Entry",
+      "stopLoss": "Stop Loss",
+      "target": "Target",
+      "quantity": "Quantity",
+      "comments": "Comments",
+      "stock": "Stock"
+    }
+  }
+}

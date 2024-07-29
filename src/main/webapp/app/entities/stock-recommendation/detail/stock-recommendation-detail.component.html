@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (stockRecommendation()) {
+      <div>
+        <h2 data-cy="stockRecommendationDetailsHeading">
+          <span jhiTranslate="breakoutStocksApp.stockRecommendation.detail.title">Stock Recommendation</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.entry">Entry</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.entry }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.stopLoss">Stop Loss</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.stopLoss }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.target">Target</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.target }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.quantity">Quantity</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.quantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.comments">Comments</span></dt>
+          <dd>
+            <span>{{ stockRecommendation()!.comments }}</span>
+          </dd>
+          <dt><span jhiTranslate="breakoutStocksApp.stockRecommendation.stock">Stock</span></dt>
+          <dd>
+            @if (stockRecommendation()!.stock) {
+              <div>
+                <a [routerLink]="['/stock', stockRecommendation()!.stock?.id, 'view']">{{ stockRecommendation()!.stock?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/stock-recommendation', stockRecommendation()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -17,7 +17,14 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175333_added_entity_Stock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175334_added_entity_StockDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175335_added_entity_StockRecommendation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175336_added_entity_StockPosition.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240728175334_added_entity_constraints_StockDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175335_added_entity_constraints_StockRecommendation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240728175336_added_entity_constraints_StockPosition.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

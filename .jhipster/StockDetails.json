@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20240728175334"
+  },
+  "applications": ["breakoutStocks"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "curPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "priceChange",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "changePer",
+      "fieldType": "Float"
+    }
+  ],
+  "name": "StockDetails",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "stock",
+      "relationshipName": "stock",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
