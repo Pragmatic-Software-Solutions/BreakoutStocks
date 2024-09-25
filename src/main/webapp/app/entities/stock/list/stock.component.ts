@@ -51,6 +51,8 @@ export class StockComponent implements OnInit {
   protected ngZone = inject(NgZone);
 
   trackId = (_index: number, item: IStock): number => this.stockService.getStockIdentifier(item);
+  proId = 0;
+  conId = 0;
 
   ngOnInit(): void {
     this.subscription = combineLatest([this.activatedRoute.queryParamMap, this.activatedRoute.data])

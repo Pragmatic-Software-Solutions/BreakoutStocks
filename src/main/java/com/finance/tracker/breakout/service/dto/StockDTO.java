@@ -14,6 +14,7 @@ public class StockDTO implements Serializable {
     private String symbol;
 
     private String exchange;
+    private AnalysisResult result;
 
     public Long getId() {
         return id;
@@ -37,6 +38,15 @@ public class StockDTO implements Serializable {
 
     public void setExchange(String exchange) {
         this.exchange = exchange;
+    }
+
+    public AnalysisResult getResult() {
+        return result;
+    }
+
+    public StockDTO setResult(AnalysisResult result) {
+        this.result = result;
+        return this;
     }
 
     @Override

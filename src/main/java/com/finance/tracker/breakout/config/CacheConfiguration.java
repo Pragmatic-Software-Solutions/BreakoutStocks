@@ -1,5 +1,6 @@
 package com.finance.tracker.breakout.config;
 
+import com.finance.tracker.breakout.service.dto.AnalysisResult;
 import java.time.Duration;
 import org.ehcache.config.builders.*;
 import org.ehcache.jsr107.Eh107Configuration;
@@ -9,7 +10,9 @@ import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.*;
 import tech.jhipster.config.JHipsterProperties;
@@ -56,6 +59,7 @@ public class CacheConfiguration {
             createCache(cm, com.finance.tracker.breakout.domain.StockDetails.class.getName());
             createCache(cm, com.finance.tracker.breakout.domain.StockRecommendation.class.getName());
             createCache(cm, com.finance.tracker.breakout.domain.StockPosition.class.getName());
+            createCache(cm, "companyAnalysis");
             // jhipster-needle-ehcache-add-entry
         };
     }

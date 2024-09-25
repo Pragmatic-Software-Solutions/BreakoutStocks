@@ -5,6 +5,7 @@ import com.finance.tracker.breakout.repository.StockRepository;
 import com.finance.tracker.breakout.service.StockService;
 import com.finance.tracker.breakout.service.dto.StockDTO;
 import com.finance.tracker.breakout.service.mapper.StockMapper;
+import com.finance.tracker.breakout.service.screener.RestService;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -30,9 +31,12 @@ public class StockServiceImpl implements StockService {
 
     private final StockMapper stockMapper;
 
-    public StockServiceImpl(StockRepository stockRepository, StockMapper stockMapper) {
+    private final RestService restService;
+
+    public StockServiceImpl(StockRepository stockRepository, StockMapper stockMapper, RestService restService) {
         this.stockRepository = stockRepository;
         this.stockMapper = stockMapper;
+        this.restService = restService;
     }
 
     @Override
@@ -70,7 +74,13 @@ public class StockServiceImpl implements StockService {
     @Transactional(readOnly = true)
     public Page<StockDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Stocks");
-        return stockRepository.findAll(pageable).map(stockMapper::toDto);
+        Page<StockDTO> stockDTOS = stockRepository.findAll(pageable).map(stockMapper::toDto);
+        stockDTOS
+            .stream()
+            .forEach(s -> {
+                s.setResult(restService.getProsAndCons(s.getSymbol()));
+            });
+        return stockDTOS;
     }
 
     /**
